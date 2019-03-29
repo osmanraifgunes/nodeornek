@@ -9,8 +9,22 @@ var config = {
     server: '10.150.0.22', 
     database: 'TT_Sirket' 
 };
+app.set('view engine', 'ejs');
 
 app.use(bp.urlencoded({ extended: false }))
+app.get('/search', function(req,res) {
+     mq.connect(config, function (err) {
+        if (err) console.log(err);
+        var request = new mq.Request();
+        request.query("select * from tbl_Personel", function (err, recordset) {
+            if (err) console.log(err)
+            mq.close();
+            res.render('home',{data:recordset.recordset});
+            //res.send(recordset);
+        });
+    });
+    //res.sendFile(__dirname +'/index.html');
+ });
 app.post('/search', function(req,res) {
 
      mq.connect(config, function (err) {
