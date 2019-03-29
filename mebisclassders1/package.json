@@ -1,0 +1,10 @@
+{
+    "name": "mebisclass",
+    "version": "1.0.0",
+    "description": "lab uygulaması",
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "express": "^4.16.4",
+        "mssql": "5.0.3"
+    }
+}

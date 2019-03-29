@@ -1,0 +1,9 @@
+{
+    "name": "labders2ogr",
+    "description": "der ornekleri",
+    "dependencies": {
+        "express": "4.16.4",
+        "mssql": "^5.0.3",
+        "body-parser": "1.18.3"
+    }
+}
