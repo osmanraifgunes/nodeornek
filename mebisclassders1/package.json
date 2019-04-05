@@ -4,6 +4,7 @@
     "description": "lab uygulaması",
     "dependencies": {
         "body-parser": "^1.18.3",
+        "ejs": "*",
         "express": "^4.16.4",
         "mssql": "5.0.3"
     }
