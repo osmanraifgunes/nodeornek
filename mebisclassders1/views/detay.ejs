@@ -16,24 +16,21 @@
         <table class="table table-dark">
             <tr>
                 <th>Adi</th>
-                <th>Soyadi</th>
-                <th>Adres</th>
-                <th>Detay</th>
+                <th>Durum</th>
+                <th>Aciklama</th>
             </tr>
-            <% veri.forEach(function(personel){ %>
+            <% bolum.forEach(function(bl){ %>
             <tr>
                 <td>
-                    <%= personel.Adi %>
+                    <%= bl.Adi %>
                 </td>
                 <td>
-                    <%= personel.Soyadi %>
+                    <%= bl.Durumu %>
                 </td>
                 <td>
-                    <%= personel.Adres %>
+                    <%= bl.Aciklama %>
                 </td>
-                <td>
-                  <a href="/detay/<%= personel.BolumNo %>">detay</a>
-                </td>
+           
             </tr>
             <% }); %>
 
