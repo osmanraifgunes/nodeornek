@@ -28,7 +28,7 @@ module.exports.departmandetay = function(req, res) {
     sql.connect(config, function (err) {
         if (err) console.log(err);
         var request = new sql.Request();
-        request.query("select * from TDepartment", function (err, depler) {
+        request.query("select * from TDepartment where YoneticiId = " + req.params.id, function (err, depler) {
             if (err) console.log(err)
             sql.close();
             res.render('dep',{veriler:depler});

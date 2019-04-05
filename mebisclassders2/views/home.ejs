@@ -16,6 +16,7 @@
                         <th scope="col">UserName</th>
                         <th scope="col">PassWord</th>
                         <th scope="col">SurName</th>
+                        <th scope="col">Departman</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -25,6 +26,7 @@
                                         <td>  <%=item.UserName%></td>
                                         <td>  <%=item.Password%></td>
                                         <td>  <%=item.SurName%></td>
+                                        <td> <a href="/departman/<%=item.Id%>">departman</a></td>
                                       </tr>
                                      
                               <% }); %>

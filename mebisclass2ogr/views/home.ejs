@@ -20,6 +20,7 @@
                         <th scope="col">First</th>
                         <th scope="col">Last</th>
                         <th scope="col">Handle</th>
+                        <th scope="col">Bolum</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -30,6 +31,7 @@
                                         <td> <%=item.Adi%></td>
                                         <td> <%=item.Maas%></td>
                                         <td> <%=item.Cinsiyet%></td>
+                                        <td> <a href="/bolum/<%=item.BolumNo%>">bolüme git</a></td>
                                       </tr>
                               <% }); %>
                     

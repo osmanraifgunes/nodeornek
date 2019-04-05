@@ -12,6 +12,6 @@ const port = 3000;
 
 app.get('/login', dbops.liste);
 app.post('/login', dbops.liste);
-app.get('/departman', dbops.departmandetay);
+app.get('/departman/:id/:yil', dbops.departmandetay);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
