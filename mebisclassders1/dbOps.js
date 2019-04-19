@@ -1,13 +1,14 @@
 const sql = require('mssql')
-var webconfig  = {
+
+var webconfig = {
     user: 'sa',
     password: 'MEDIPOL',
-    server: '10.150.0.22', 
-    database: 'DEPO' 
+    server: '10.150.0.22',
+    database: 'DEPO'
 };
 
 
-module.exports.userLogin = function ( req,  res) {
+module.exports.listele = function (req, res) {
     sql.connect(webconfig, function (err) {
         if (err) console.log(err);
         var request1 = new sql.Request();
@@ -16,13 +17,13 @@ module.exports.userLogin = function ( req,  res) {
                 console.log(err);
             }
             sql.close();
-            res.render('home',{veri:verisonucu.recordset});
+            res.render('home', { veri: verisonucu.recordset });
         });
     });
 }
 
 
-module.exports.userDetay = function ( req,  res) {
+module.exports.userDetay = function (req, res) {
     sql.connect(webconfig, function (err) {
         if (err) console.log(err);
         var request1 = new sql.Request();
@@ -31,7 +32,17 @@ module.exports.userDetay = function ( req,  res) {
                 console.log(err);
             }
             sql.close();
-            res.render('detay',{bolum:bolumverisi.recordset});
+            res.render('detay', { bolum: bolumverisi.recordset });
         });
     });
+}
+
+module.exports.bolumEkleGet = function (req, res) {
+    res.render("ekle");
+}
+module.exports.bolumEklePost = function (req, res) {
+
+
+      res.redirect('/liste' );
+
 }

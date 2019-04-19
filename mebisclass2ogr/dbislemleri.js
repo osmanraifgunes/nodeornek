@@ -1,9 +1,11 @@
 const mq = require('mssql');
+const dosyasistemi = require('fs');
+
 var config = {
     user: 'sa',
     password: 'MEDIPOL',
     server: '10.150.0.22',
-    database: 'DEPO'
+    database: 'TT_2OGRETIM'
 };
 
 module.exports.personelgetir = function (req, res) {
@@ -37,9 +39,29 @@ module.exports.bolumgetir = function name(req, res) {
             console.log('veri tabanına bağlanamadı');
         }
         var rq = new mq.Request();
-        rq.query("select * from tbl_bolum where id = " + req.params.id,function (err, sorgusonucu) {
+        rq.query("select * from sys.tables " ,function (err, sorgusonucu) {
             mq.close();
             res.render("bolumdetay",{bolumveri:sorgusonucu.recordset})
         })
     })
+}
+
+
+module.exports.bolumEkleGet = function (req,res) {
+    res.render('personelEkle');
+}
+module.exports.bolumEklePost = function (req,res) {
+    res.render('personelEkle');
+    //var geciciveri = [];
+    // req.on('data',function (databolumu) {
+    //     debugger;
+    //     geciciveri=  geciciveri.concat(databolumu);
+        
+    // })
+
+    // req.on('end',function(){
+    //     dosyasistemi.writeFile("deneme1.jpg",geciciveri,function (params) {
+            
+    //     })
+    // })
 }
