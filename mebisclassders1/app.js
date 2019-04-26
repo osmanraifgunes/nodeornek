@@ -19,5 +19,8 @@ app.get('/liste', login.listele);
 app.get('/detay/:bolumid', login.userDetay);
 app.get('/ekle', login.bolumEkleGet);
 app.post('/ekle', yukle.any(), login.bolumEklePost);
+app.get('/testprms', login.promiseTest);
+app.get('/testclbck', login.calbackTest);
+app.get('/sirali', login.sirali);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
