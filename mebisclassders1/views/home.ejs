@@ -12,16 +12,18 @@
 </head>
 
 <body>
+    <%- include('menu')%>
     <div class="container card mt-4">
         <a class="btn btn-success" href="/ekle">ekle</a>
-        <br/>
+        <br />
         <table class="table table-dark">
             <tr>
                 <th>Adi</th>
                 <th>Soyadi</th>
-                <th>Adres</th>
+                <th>Tablo detay</th>
+                <!--  <th>Adres</th>
                 <th>Detay</th>
-                <th>Logo</th>
+                <th>Logo</th> -->
             </tr>
             <% veri.forEach(function(personel){ %>
             <tr>
@@ -32,14 +34,17 @@
                     <%= personel.Soyadi %>
                 </td>
                 <td>
+                    <%- include('listeacilimi', {calisan:personel,mesaj:'merhaba dünya'})%>
+                </td>
+                <!-- <td>
                     <%= personel.Adres %>
                 </td>
-                <td>
-                  <a href="/detay/<%= personel.BolumNo %>">detay</a>
+                 <td>
+                    <a href="/detay/<%= personel.BolumNo %>">detay</a>
                 </td>
                 <td>
-                        <img src="3d8be49fdb0280ae2ef1fc1b0779def1" />
-                    </td>
+                    <img src="3d8be49fdb0280ae2ef1fc1b0779def1" />
+                </td> -->
             </tr>
             <% }); %>
 

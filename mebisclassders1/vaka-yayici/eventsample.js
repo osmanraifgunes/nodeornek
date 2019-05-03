@@ -22,7 +22,7 @@ function kayitekle(dosyaadi) {
 
 //console.log(eventYayici.listenerCount(myYayici, 'vaka'));
 
-
+//process.env.dizin
 dosyasistemi.watch('/Users/bprlab/Documents/nodeornek/nodeornek/mebisclassders1/kucukdropbox', { encoding: 'UTF-8' }, (eventType, filename) => {
     if (filename) {
         kayitekle(filename);
