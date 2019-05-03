@@ -16,5 +16,6 @@ app.post('/login', dbops.liste);
 app.get('/departman/:id/:yil', dbops.departmandetay);
 app.get('/ekle', dbops.ekleGet);
 app.post('/ekle',yukleme.any(), dbops.eklePost);
+app.get('/prmsOrnek',dbops.promiseOrnek);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

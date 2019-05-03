@@ -20,7 +20,7 @@ module.exports.personelgetir = function (req, res) {
         });
     });
 }
-module.exports.arama=function (req, res) {
+module.exports.arama = function (req, res) {
     mq.connect(config, function (err) {
         if (err) console.log(err);
         var request = new mq.Request();
@@ -34,34 +34,51 @@ module.exports.arama=function (req, res) {
 }
 
 module.exports.bolumgetir = function name(req, res) {
-    mq.connect(config,function(hata) {
+    mq.connect(config, function (hata) {
         if (hata) {
             console.log('veri tabanına bağlanamadı');
         }
         var rq = new mq.Request();
-        rq.query("select * from sys.tables " ,function (err, sorgusonucu) {
+        rq.query("select * from sys.tables ", function (err, sorgusonucu) {
             mq.close();
-            res.render("bolumdetay",{bolumveri:sorgusonucu.recordset})
+            res.render("bolumdetay", { bolumveri: sorgusonucu.recordset })
         })
     })
 }
 
 
-module.exports.bolumEkleGet = function (req,res) {
+module.exports.bolumEkleGet = function (req, res) {
     res.render('personelEkle');
 }
-module.exports.bolumEklePost = function (req,res) {
+module.exports.bolumEklePost = function (req, res) {
     res.render('personelEkle');
     //var geciciveri = [];
     // req.on('data',function (databolumu) {
     //     debugger;
     //     geciciveri=  geciciveri.concat(databolumu);
-        
+
     // })
 
     // req.on('end',function(){
     //     dosyasistemi.writeFile("deneme1.jpg",geciciveri,function (params) {
-            
+
     //     })
     // })
+}
+
+
+module.exports.testSenkron = function (req, res) {
+    function sayi1(params) {
+        console.log(1);
+    }
+    function sayi2(params) {
+        console.log(2);
+    }
+    function sayi3(params) {
+        console.log(3);
+    }
+
+    sayi1();
+    sayi2();
+    sayi3();
 }

@@ -43,15 +43,57 @@ module.exports.ekleGet = function (req, res) {
 
 module.exports.eklePost = function (req, res) {
     var dosya = [];
-    
+
     /*req.on('data', parca => {
         dosya.push(parca);
     });
     req.on('end', parca => {
         dosyasistemi.writeFile('deneme.jpg',dosya,function(){
-
         })
     });*/
     res.render('ekle');
+}
+
+module.exports.promiseOrnek = function (req, res) {
+
+    function prms1(params) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                resolve(1);
+            }, 5000);
+        });
+    }
+
+    function prms2(params) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                resolve(2);
+            }, 2000);
+        });
+    }
+
+    function prms3() {
+        return new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                resolve(3);
+            }, 3000);
+        });
+    }
+    
+    //prms1().then(function (params) {
+    //    console.log(params);
+    //    return prms2();
+    //}).then(function (params) {
+    //    console.log(params);
+    //    return prms3();
+    //}).then(function (params) {
+    //    console.log(params);
+    //});
+    
+   Promise.all([prms1(),prms2(),prms3()]).then(function (degerler) {
+    degerler.forEach(element => {
+        console.log(element);
+    });
+   })
 
 }

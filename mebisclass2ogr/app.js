@@ -1,5 +1,5 @@
 const express = require('express');
-var multer  = require('multer')
+var multer = require('multer')
 var dosyayukleme = multer({ dest: 'yuklemeler/' })
 
 const bp = require('body-parser');
@@ -12,9 +12,10 @@ app.set('view engine', 'ejs');  // tüm responselar buradan ge.er
 
 app.use(bp.urlencoded({ extended: false }))
 app.get('/search', db.personelgetir);
-app.post('/search',db.arama );
-app.get('/bolum/:id',db.bolumgetir );
-app.get('/ekle',db.bolumEkleGet );
-app.post('/ekle', dosyayukleme.single('ProfilResmi'),db.bolumEklePost );
+app.post('/search', db.arama);
+app.get('/bolum/:id', db.bolumgetir);
+app.get('/ekle', db.bolumEkleGet);
+app.post('/ekle', dosyayukleme.single('ProfilResmi'), db.bolumEklePost);
+app.get('/testReq', db.testSenkron);
 
 app.listen(port, () => console.log('Example app listening on port:' + port))
