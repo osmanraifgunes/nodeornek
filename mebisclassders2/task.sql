@@ -1,9 +1,8 @@
 Use intteklab1b
 go
+INSERT into TUser
+VALUES
+    ('deneme', 1)
 
-CREATE TABLE TUser (
-Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-Adi nvarchar(255) NOT NULL,
-Aciklama bit NOT NULL
-);
-GO
+select *
+from TUser
